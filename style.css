@@ -1,219 +1,181 @@
+/* CSS Reset & Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 :root {
-  --bg: #0b0f19;
-  --surface: #111827;
-  --surface-alt: #1f2937;
-  --fg: #34d399;              /* Hacker terminal green */
-  --fg-bright: #6ee7b7;       /* Bright neon mint */
-  --text-main: #e5e7eb;       /* Crisp white/gray text */
-  --muted: #9ca3af;
-  --accent: #38bdf8;          /* Electric cyan */
-  --border: rgba(52, 211, 153, 0.2);
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-color: #38bdf8;
+    --accent-hover: #0ea5e9;
+    --border-color: #334155;
+    --transition: all 0.25s ease;
 }
 
 body {
-  margin: 0;
-  font-family: 'JetBrains Mono', monospace, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas;
-  background-color: var(--bg);
-  color: var(--text-main);
-  line-height: 1.6;
-  padding: 30px 20px;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.portfolio-container {
-  max-width: 850px;
-  margin: 0 auto;
-}
-
-/* Retro Terminal Top Bar */
-.terminal-bar {
-  max-width: 850px;
-  margin: 0 auto 30px auto;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px 8px 0 0;
-  padding: 10px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.window-controls {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.dot.red { background: #ef4444; }
-.dot.yellow { background: #f59e0b; }
-.dot.green { background: #10b981; }
-
-.terminal-title {
-  font-size: 0.8rem;
-  color: var(--muted);
-  margin-left: 12px;
-}
-
-/* Nav links styled like terminal commands */
-.nav-links {
-  display: flex;
-  gap: 12px;
-}
-
-.nav-links a {
-  color: var(--accent);
-  text-decoration: none;
-  font-size: 0.85rem;
-  background: var(--surface-alt);
-  padding: 4px 10px;
-  border-radius: 4px;
-  border: 1px solid rgba(56, 189, 248, 0.2);
-  transition: all 0.2s;
-}
-
-.nav-links a:hover {
-  background: var(--accent);
-  color: var(--bg);
-}
-
-/* ASCII Art Banner */
-.ascii-banner {
-  color: var(--fg);
-  font-size: clamp(0.45rem, 1.5vw, 0.85rem);
-  line-height: 1.1;
-  overflow-x: auto;
-  margin-bottom: 20px;
-  text-shadow: 0 0 10px rgba(52, 211, 153, 0.3);
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
 /* Hero Section */
-.hero-section h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--fg-bright);
-  margin-bottom: 8px;
-  letter-spacing: -0.02em;
+.hero {
+    padding: 5rem 0 3rem 0;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.tagline-text {
-  font-size: 1.05rem;
-  color: var(--muted);
-  margin-top: 0;
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
 }
 
-/* Section Headings styled like code comments */
-.content-section {
-  margin-top: 40px;
+.hero .tagline {
+    font-size: 1.25rem;
+    color: var(--accent-color);
+    font-weight: 500;
+    margin-bottom: 1rem;
 }
 
-.content-section h2 {
-  font-size: 0.95rem;
-  color: var(--fg);
-  margin-bottom: 14px;
-  letter-spacing: 0.05em;
+.hero .bio {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 1.5rem;
 }
 
-/* Bio Card as Code Block */
-.bio-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 20px 24px;
-  border-radius: 6px;
-  color: var(--text-main);
-  position: relative;
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
 }
 
-.bio-card::before {
-  content: "/* about_me */";
-  display: block;
-  font-size: 0.75rem;
-  color: var(--muted);
-  margin-bottom: 8px;
+.social-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
 }
 
-/* Skills Grid as Geek Tags */
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Main Layout & Sections */
+main {
+    flex: 1;
+    padding: 3rem 0;
+}
+
+.section {
+    margin-bottom: 3rem;
+}
+
+.section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.015em;
+}
+
+/* Skills Grid */
 .skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
 }
 
 .skills-grid li {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--fg-bright);
-  padding: 6px 14px;
-  border-radius: 4px;
-  font-size: 0.85rem;
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
 }
 
-.skills-grid li::before {
-  content: "# ";
-  color: var(--muted);
-}
-
-/* Projects Grid as Repository Cards */
+/* Projects Grid */
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
 }
 
-.projects-grid .card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 20px;
-  border-radius: 6px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.2s;
+@media (min-width: 640px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.projects-grid .card:hover {
-  border-color: var(--fg);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(52, 211, 153, 0.1);
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
 }
 
-.projects-grid .card h3 {
-  margin-top: 0;
-  color: var(--fg-bright);
-  font-size: 1.1rem;
+.card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
 }
 
-.projects-grid .card p {
-  color: var(--muted);
-  font-size: 0.9rem;
+.card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
-.projects-grid .card a {
-  color: var(--accent);
-  text-decoration: none;
-  font-size: 0.85rem;
-  margin-top: 12px;
-  display: inline-block;
+.card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
 }
 
-.projects-grid .card a::after {
-  content: " ↗";
+.card a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.card a:hover {
+    color: var(--accent-hover);
 }
 
 /* Footer */
-.footer-bar {
-  max-width: 850px;
-  margin: 50px auto 0 auto;
-  color: var(--muted);
-  font-size: 0.8rem;
-  border-top: 1px solid var(--border);
-  padding-top: 16px;
-  text-align: center;
+footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
 }

@@ -3,38 +3,52 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portfolio</title>
+  <title>Portfolio // Geek Den</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Sleek Top Bar -->
-  <header class="top-nav">
+  <!-- Retro Terminal Top Bar -->
+  <header class="terminal-bar">
+    <div class="window-controls">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span class="terminal-title">bash — nithya@portfolio:~</span>
+    </div>
     <nav id="links" class="nav-links"></nav>
   </header>
 
   <main class="portfolio-container">
-    <!-- Hero Section -->
+    <!-- ASCII Art & Hero -->
     <section class="hero-section">
+      <pre class="ascii-banner">
+  _   _ _ _            __     ___                 
+ | \ | (_) |_| |_  __ _   \ \   / (_)_ __   __ _ _   _ 
+ |  \| | | __| '${/ _` |   \ \ / /| | '_ \ / _` | | | |
+ | |\  | | |_| | || (_| |    \ V / | | | | | (_| | |_| |
+ |_| \_|_|\__|_|_| \__, |     \_/  |_|_| |_|\__,_|\__, |
+                   |___/                          |___/ 
+      </pre>
       <h1 id="name"></h1>
       <p id="tagline" class="tagline-text"></p>
     </section>
 
-    <!-- About Section -->
+    <!-- About / README Section -->
     <section class="content-section">
-      <h2>About</h2>
-      <p id="bio" class="bio-card"></p>
+      <h2>// 01. README.md</h2>
+      <div id="bio" class="bio-card"></div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills / Dependencies Section -->
     <section class="content-section">
-      <h2>Toolkit</h2>
+      <h2>// 02. DEPENDENCIES / SKILLS</h2>
       <ul id="skills" class="skills-grid"></ul>
     </section>
 
     <!-- Projects Section -->
     <section class="content-section">
-      <h2>Projects</h2>
+      <h2>// 03. REPOSITORIES</h2>
       <div id="projects" class="projects-grid"></div>
     </section>
   </main>

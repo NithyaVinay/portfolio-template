@@ -1,89 +1,142 @@
 :root {
-  --bg: #090d16;
+  --bg: #0b0f19;
   --surface: #111827;
-  --fg: #f3f4f6;
+  --surface-alt: #1f2937;
+  --fg: #34d399;              /* Hacker terminal green */
+  --fg-bright: #6ee7b7;       /* Bright neon mint */
+  --text-main: #e5e7eb;       /* Crisp white/gray text */
   --muted: #9ca3af;
-  --accent: #38bdf8;
-  --border: rgba(56, 189, 248, 0.15);
+  --accent: #38bdf8;          /* Electric cyan */
+  --border: rgba(52, 211, 153, 0.2);
 }
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'JetBrains Mono', monospace, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas;
   background-color: var(--bg);
-  color: var(--fg);
+  color: var(--text-main);
   line-height: 1.6;
-  padding: 40px 20px;
+  padding: 30px 20px;
 }
 
 .portfolio-container {
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 auto;
 }
 
-/* Header & Nav */
-.top-nav {
-  max-width: 800px;
-  margin: 0 auto 40px auto;
+/* Retro Terminal Top Bar */
+.terminal-bar {
+  max-width: 850px;
+  margin: 0 auto 30px auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px 8px 0 0;
+  padding: 10px 16px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.window-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.red { background: #ef4444; }
+.dot.yellow { background: #f59e0b; }
+.dot.green { background: #10b981; }
+
+.terminal-title {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-left: 12px;
+}
+
+/* Nav links styled like terminal commands */
+.nav-links {
+  display: flex;
+  gap: 12px;
 }
 
 .nav-links a {
   color: var(--accent);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 6px 14px;
-  border-radius: 6px;
-  transition: border-color 0.2s;
+  font-size: 0.85rem;
+  background: var(--surface-alt);
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  transition: all 0.2s;
 }
 
 .nav-links a:hover {
-  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* ASCII Art Banner */
+.ascii-banner {
+  color: var(--fg);
+  font-size: clamp(0.45rem, 1.5vw, 0.85rem);
+  line-height: 1.1;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(52, 211, 153, 0.3);
 }
 
 /* Hero Section */
 .hero-section h1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  letter-spacing: -0.03em;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--fg-bright);
   margin-bottom: 8px;
-  color: var(--fg);
+  letter-spacing: -0.02em;
 }
 
 .tagline-text {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   color: var(--muted);
   margin-top: 0;
 }
 
-/* Section Headings */
+/* Section Headings styled like code comments */
 .content-section {
-  margin-top: 48px;
+  margin-top: 40px;
 }
 
 .content-section h2 {
-  font-size: 1.1rem;
-  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: var(--fg);
+  margin-bottom: 14px;
   letter-spacing: 0.05em;
-  color: var(--accent);
-  margin-bottom: 16px;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 8px;
 }
 
-/* Bio Card */
+/* Bio Card as Code Block */
 .bio-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  padding: 24px;
-  border-radius: 12px;
-  color: var(--fg);
+  padding: 20px 24px;
+  border-radius: 6px;
+  color: var(--text-main);
+  position: relative;
 }
 
-/* Skills Grid (Targeting script-generated <li> elements) */
+.bio-card::before {
+  content: "/* about_me */";
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+/* Skills Grid as Geek Tags */
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
@@ -96,62 +149,71 @@ body {
 .skills-grid li {
   background: var(--surface);
   border: 1px solid var(--border);
-  color: var(--fg);
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-family: monospace;
+  color: var(--fg-bright);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.85rem;
 }
 
-/* Projects Grid (Targeting script-generated .card elements) */
+.skills-grid li::before {
+  content: "# ";
+  color: var(--muted);
+}
+
+/* Projects Grid as Repository Cards */
 .projects-grid {
   display: grid;
-  grid-template-coordinates: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
 }
 
 .projects-grid .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  padding: 24px;
-  border-radius: 12px;
+  padding: 20px;
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.2s, border-color 0.2s;
+  transition: all 0.2s;
 }
 
 .projects-grid .card:hover {
-  border-color: var(--accent);
+  border-color: var(--fg);
   transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(52, 211, 153, 0.1);
 }
 
 .projects-grid .card h3 {
   margin-top: 0;
-  color: var(--fg);
-  font-size: 1.25rem;
+  color: var(--fg-bright);
+  font-size: 1.1rem;
 }
 
 .projects-grid .card p {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .projects-grid .card a {
   color: var(--accent);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  margin-top: 16px;
+  font-size: 0.85rem;
+  margin-top: 12px;
   display: inline-block;
+}
+
+.projects-grid .card a::after {
+  content: " ↗";
 }
 
 /* Footer */
 .footer-bar {
-  max-width: 800px;
-  margin: 60px auto 0 auto;
+  max-width: 850px;
+  margin: 50px auto 0 auto;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   border-top: 1px solid var(--border);
-  padding-top: 20px;
+  padding-top: 16px;
+  text-align: center;
 }

@@ -1,68 +1,31 @@
-:root {
-  --bg: #030712;              /* Deep obsidian slate */
-  --surface: #0f172a;         /* Elevated card surface */
-  --fg: #e2e8f0;              /* Crisp silver text */
-  --muted: #64748b;           /* Muted slate gray */
-  --accent: #38bdf8;          /* Electric cyan glow */
-  --accent-alt: #c084fc;      /* Neon violet highlight */
-  --border: rgba(56, 189, 248, 0.15);
-}
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g,
+    (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const safe = (u) => (/^https?:\/\//i.test(u) ? u : '#');
 
-body {
-  margin: 0;
-  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
-  background-color: var(--bg);
-  color: var(--fg);
-  line-height: 1.7;
-  padding: clamp(24px, 5vw, 60px);
-  max-width: 1200px;
-  margin-inline: auto;
-}
-/* Glassmorphism Cards */
-.glass-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 32px;
-  border-radius: 12px;
-  position: relative;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
+fetch('profile.json').then((r) => r.json()).then((p) => {
+    document.title = `${p.name} | Portfolio`;
+    $('name').textContent = p.name;
+    if($('name-header')) $('name-header').textContent = `${p.name.toUpperCase()} // SYS.ONLINE`;
+    $('tagline').textContent = p.tagline;
+    $('bio').textContent = p.bio;
 
-.glass-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px -10px rgba(56, 189, 248, 0.2);
-}
+    // Render skills as interactive matrix items
+    $('skills').innerHTML = (p.skills || []).map((s) => 
+        `<li class="matrix-item">${esc(s)}</li>`).join('');
 
-.card-id {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.75rem;
-  color: var(--accent);
-  letter-spacing: 2px;
-  display: block;
-  margin-bottom: 8px;
-}
+    // Render projects inside glassmorphic cards
+    $('projects').innerHTML = (p.projects || []).map((x, index) =>
+        `<div class="glass-card">` +
+            `<span class="card-id">SYS_0${index + 1}</span>` +
+            `<h3>${esc(x.title)}</h3>` +
+            `<p style="color: var(--muted);">${esc(x.desc)}</p>` +
+            `<a href="${safe(x.link)}" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; display: inline-block; margin-top: 12px;">Explore Repository →</a>` +
+        `</div>`).join('');
 
-/* Matrix Stack Grid */
-.matrix-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
-}
+    // Render navigation social links
+    $('links').innerHTML = Object.entries(p.links || {}).map(([k, v]) =>
+        `<a href="${safe(v)}" target="_blank" rel="noopener" style="color: var(--accent); font-family: 'JetBrains Mono', monospace; text-decoration: none; font-size: 0.85rem;">[${esc(k)}]</a>`).join('');
 
-.matrix-item {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.85rem;
-  padding: 14px 18px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  text-align: center;
-  color: var(--fg);
-  transition: background 0.2s;
-}
-
-.matrix-item:hover {
-  background: rgba(56, 189, 248, 0.05);
-  border-color: var(--accent-alt);
-}
+    $('footer').innerHTML = `© ${new Date().getFullYear()} ${p.name}. Compiled with focus & code.`;
+});

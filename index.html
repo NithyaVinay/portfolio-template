@@ -1,71 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Rivera — Full-Stack Architect</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-
-    <!-- Floating Top Status Bar -->
-    <header class="status-bar">
-        <span class="status-indicator"></span>
-        <span>SYS.ONLINE // AVAILABLE FOR CONTRACT</span>
-        <nav>
-            <a href="#work">Projects</a>
-            <a href="#stack">Matrix</a>
-            <a href="#contact">Signal</a>
-        </nav>
-    </header>
-
-    <!-- Cinematic Hero Section -->
-    <section class="hero-cinematic">
-        <p class="meta-tag">01 // IDENTITY</p>
-        <h1>Architecting <br><span>Digital Realities.</span></h1>
-        <p class="hero-desc">Building lightning-fast web applications, scalable backend systems, and immersive developer tools.</p>
+  <header class="hero">
+    <h1 id="name"></h1>
+    <p id="tagline"></p>
+    <nav id="links"></nav>
+  </header>
+  <main>
+    <section>
+      <h2>About</h2>
+      <p id="bio"></p>
     </section>
-
-    <!-- Main Dynamic Content Grid -->
-    <main>
-        <!-- Projects Section (Card Grid with Glowing Borders) -->
-        <section id="work">
-            <h2>Featured Deployments</h2>
-            <div class="project-grid">
-                <article class="glass-card">
-                    <span class="card-id">SYS_01</span>
-                    <h3>Hyperion Engine</h3>
-                    <p>A real-time data streaming dashboard built with WebSockets and Rust backend workers.</p>
-                    <a href="#" class="action-link">Explore Repository →</a>
-                </article>
-
-                <article class="glass-card">
-                    <span class="card-id">SYS_02</span>
-                    <h3>NullState UI</h3>
-                    <p>An accessible, zero-dependency component library designed for high-performance web apps.</p>
-                    <a href="#" class="action-link">Explore Repository →</a>
-                </article>
-            </div>
-        </section>
-
-        <!-- Tech Stack / Matrix Section -->
-        <section id="stack">
-            <h2>Core Stack Matrix</h2>
-            <div class="matrix-grid">
-                <div class="matrix-item">TypeScript / JavaScript</div>
-                <div class="matrix-item">React / Next.js</div>
-                <div class="matrix-item">Rust / Node.js</div>
-                <div class="matrix-item">PostgreSQL / Redis</div>
-                <div class="matrix-item">Docker / Kubernetes</div>
-                <div class="matrix-item">Tailwind / CSS Architecture</div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Alex Rivera. Compiled with focus & coffee.</p>
-    </footer>
-
+    <section>
+      <h2>Skills</h2>
+      <ul id="skills" class="chips"></ul>
+    </section>
+    <section>
+      <h2>Projects</h2>
+      <div id="projects" class="grid"></div>
+    </section>
+  </main>
+  <footer id="footer"></footer>
+  <script src="script.js"></script>
 </body>
+
 </html>

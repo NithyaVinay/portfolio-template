@@ -16,3 +16,6 @@ fetch('profile.json').then((r) => r.json()).then((p) => {
         `<a href="${safe(v)}" target="_blank" rel="noopener">${esc(k)}</a>`).join('');
     $('footer').textContent = `\u00A9 ${new Date().getFullYear()} ${p.name}`;
 });
+.catch((error) => {
+    console.error('Error loading portfolio:', error);
+});

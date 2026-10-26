@@ -1,19 +1,21 @@
 {
-    "name": "Your Name",
-    "tagline": "Your one-line introduction",
-    "bio": "Write 2 or 3 sentences about yourself.",
+    "name": "Nithya Vinay",
+    "tagline": "First year CSE student exploring technology and creativity",
+    "bio": "I'm a first-year Computer Science Engineering student interested in learning new technologies, creative design, books and anything and everything that makes me curious.",
     "skills": [
         "Git",
-        "HTML"
+        "HTML",
+        "Python",
+        "C++"
     ],
     "projects": [
         {
-            "title": "My first project",
-            "desc": "What it does.",
-            "link": "https://github.com/yourname"
+            "title": "My Portfolio",
+            "desc": "A personal portfolio showcasing my interests, skills, and projects",
+            "link": "https://github.com/NithyaVinay"
         }
     ],
     "links": {
-        "github": "https://github.com/yourname"
+        "github": "https://github.com/NithyaVinay"
     }
 }

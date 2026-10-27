@@ -3,47 +3,557 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <!-- Google Fonts -->
+    <meta name="theme-color" content="#071426">
+
+    <title>Nithya Vinay | Portfolio</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Stylesheet -->
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
+
+    <!-- Keep your existing JavaScript file -->
+    <script src="scripts.js" defer></script>
 </head>
+
 <body>
-    <!-- Header / Hero Section -->
-    <header class="hero">
-        <div class="container">
-            <h1 id="name">Loading...</h1>
-            <p id="tagline" class="tagline"></p>
-            <p id="bio" class="bio"></p>
-            <div id="links" class="social-links"></div>
-        </div>
+
+    <!-- NAVIGATION -->
+    <header class="site-header">
+        <a href="#home" class="brand">
+            <span class="brand-mark">N</span>
+            nithya<span class="gold">.</span>
+        </a>
+
+        <nav class="main-nav">
+            <a href="#about">About</a>
+            <a href="#skills-section">Skills</a>
+            <a href="#projects-section">Projects</a>
+            <a href="#journey">Journey</a>
+            <a href="#interests">Interests</a>
+        </nav>
+
+        <a href="#contact" class="header-cta">
+            Say hello ↗
+        </a>
     </header>
 
-    <main class="container">
-        <!-- Skills Section -->
-        <section class="section">
-            <h2>Skills & Technologies</h2>
-            <ul id="skills" class="skills-grid"></ul>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero section-wrap" id="home">
+
+            <div class="hero-copy">
+
+                <p class="eyebrow">
+                    <span class="status-dot"></span>
+                    FIRST-YEAR CSE STUDENT · CURIOUS BY DEFAULT
+                </p>
+
+                <h1>
+                    Hi, I'm <span id="name">Nithya Vinay</span><span class="gold">.</span>
+                </h1>
+
+                <h2 class="hero-role" id="tagline">
+                    Learning, building, and figuring things out
+                    one idea at a time.
+                </h2>
+
+                <p class="hero-intro">
+                    I'm at the beginning of my tech journey, and
+                    that's the exciting part. I love learning by
+                    trying, turning little ideas into real projects,
+                    and making room for creativity along the way.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#projects-section" class="button button-primary">
+                        Explore my work ↘
+                    </a>
+
+                    <a href="#about" class="button button-quiet">
+                        A little about me
+                    </a>
+                </div>
+
+                <p class="hero-note">
+                    <span class="note-line"></span>
+                    Currently learning. Always curious.
+                </p>
+
+            </div>
+
+
+            <!-- PHOTO SECTION -->
+            <div class="hero-visual">
+
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+
+                <div class="photo-frame">
+
+                    <!-- Upload your picture as profile.jpg -->
+                    <img
+                        src="profile.jpg"
+                        alt="Portrait of Nithya Vinay"
+                        class="profile-photo"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+                    >
+
+                    <div class="photo-fallback">
+                        <span class="fallback-initials">NV</span>
+                        <span>Your photo goes here</span>
+                    </div>
+
+                    <span class="photo-sticker sticker-top">
+                        hello, world!
+                    </span>
+
+                    <span class="photo-sticker sticker-bottom">
+                        learning in progress ↗
+                    </span>
+
+                </div>
+
+                <div class="floating-card floating-card-top">
+                    <span class="tiny-icon">✳</span>
+                    <span>
+                        Creative mind<br>
+                        <strong>Curious learner</strong>
+                    </span>
+                </div>
+
+                <div class="floating-card floating-card-bottom">
+                    <span class="tiny-icon code-icon">&lt;/&gt;</span>
+                    <span>
+                        Small steps<br>
+                        <strong>Real progress</strong>
+                    </span>
+                </div>
+
+                <span class="sparkle sparkle-one">✳</span>
+                <span class="sparkle sparkle-two">✦</span>
+
+            </div>
+
         </section>
 
-        <!-- Projects Section -->
-        <section class="section">
-            <h2>Featured Projects</h2>
-            <div id="projects" class="projects-grid"></div>
+
+        <!-- QUICK FACTS -->
+        <section class="quick-facts section-wrap">
+
+            <div class="fact">
+                <span class="fact-number">01</span>
+                Learning to code
+            </div>
+
+            <div class="fact">
+                <span class="fact-number">02</span>
+                Creating with curiosity
+            </div>
+
+            <div class="fact">
+                <span class="fact-number">03</span>
+                Always trying something new
+            </div>
+
         </section>
+
+
+        <!-- ABOUT ME -->
+        <section class="content-section section-wrap" id="about">
+
+            <div class="section-heading">
+                <p class="eyebrow">01 / THE PERSON BEHIND THE SCREEN</p>
+                <h2>A little about <span>me.</span></h2>
+            </div>
+
+            <div class="about-grid">
+
+                <div class="about-lead">
+
+                    <p class="large-copy">
+                        I'm not trying to know everything yet.
+                        I'm excited to learn
+                        <em>something new</em> every day.
+                    </p>
+
+                    <p id="bio">
+                        I'm a first-year Computer Science student
+                        exploring web development, data science,
+                        and AI. I enjoy learning through hands-on
+                        projects and bringing a creative point of
+                        view to the things I make.
+                    </p>
+
+                </div>
+
+                <div class="about-side">
+
+                    <article class="mini-card">
+                        <span class="mini-card-icon">&lt;/&gt;</span>
+                        <div>
+                            <h3>Tech in progress</h3>
+                            <p>
+                                Learning code one experiment,
+                                one challenge, and one bug at a time.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="mini-card">
+                        <span class="mini-card-icon">✳</span>
+                        <div>
+                            <h3>Creative at heart</h3>
+                            <p>
+                                Photography, reels, visual design,
+                                and noticing little details.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="mini-card">
+                        <span class="mini-card-icon">↗</span>
+                        <div>
+                            <h3>Open to experiences</h3>
+                            <p>
+                                Collaborating, meeting people,
+                                organising events, and sharing ideas.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- SKILLS -->
+        <section class="content-section section-wrap" id="skills-section">
+
+            <div class="section-heading">
+                <p class="eyebrow">02 / THINGS I'M EXPLORING</p>
+                <h2>My current <span>toolkit.</span></h2>
+
+                <p class="section-subtitle">
+                    A growing list, not a finished one.
+                    I'm still learning, and that's part of the fun.
+                </p>
+            </div>
+
+            <div class="skills-layout">
+
+                <div class="panel skill-intro">
+                    <span class="panel-label">LEARNING MODE: ON</span>
+
+                    <span class="big-symbol">{ }</span>
+
+                    <h3>
+                        Curiosity first.<br>
+                        Progress follows.
+                    </h3>
+
+                    <p>
+                        I like understanding how things work,
+                        then experimenting until they make sense.
+                    </p>
+                </div>
+
+                <div class="panel skills-panel">
+
+                    <h3>Skills &amp; tools</h3>
+
+                    <!-- Your JavaScript can populate this list -->
+                    <ul id="skills" class="skill-list">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>Python</li>
+                        <li>C++</li>
+                    </ul>
+
+                    <p class="skill-footnote">
+                        <span class="status-dot"></span>
+                        Currently building the basics
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECTS -->
+        <section class="content-section section-wrap" id="projects-section">
+
+            <div class="section-heading">
+                <p class="eyebrow">03 / MADE WHILE LEARNING</p>
+                <h2>Little ideas, <span>real projects.</span></h2>
+
+                <p class="section-subtitle">
+                    Every project is a chance to learn something
+                    I didn't know yesterday.
+                </p>
+            </div>
+
+            <!-- Your existing JavaScript renders project cards here -->
+            <div id="projects" class="project-grid">
+
+                <article class="project-card">
+                    <div class="project-topline">
+                        <span class="project-index">PROJECT 01</span>
+                        <span class="project-arrow">↗</span>
+                    </div>
+
+                    <div class="project-art art-portfolio">
+                        <span>
+                            my<br>corner<span class="art-period">.</span>
+                        </span>
+                        <i>✳</i>
+                    </div>
+
+                    <div class="project-info">
+                        <p class="project-type">WEB DEVELOPMENT</p>
+                        <h3>My Portfolio</h3>
+                        <p>
+                            A personal space to collect my work,
+                            share what I'm learning, and introduce
+                            the person behind the code.
+                        </p>
+
+                        <a
+                            href="https://github.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-link"
+                        >
+                            Explore project ↗
+                        </a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-topline">
+                        <span class="project-index">PROJECT 02</span>
+                        <span class="project-arrow">↗</span>
+                    </div>
+
+                    <div class="project-art art-idea">
+                        <span class="idea-orbit">✳</span>
+                        <span class="idea-label">
+                            IDEA<br>→ TRY<br>→ LEARN
+                        </span>
+                    </div>
+
+                    <div class="project-info">
+                        <p class="project-type">EXPERIMENT</p>
+                        <h3>More in the making</h3>
+                        <p>
+                            Exploring new ideas and building
+                            confidence with every small experiment.
+                            Watch this space.
+                        </p>
+
+                        <span class="coming-soon">
+                            Coming as I learn ✦
+                        </span>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- LEARNING JOURNEY -->
+        <section class="content-section section-wrap" id="journey">
+
+            <div class="section-heading">
+                <p class="eyebrow">04 / THE JOURNEY SO FAR</p>
+                <h2>One step at a <span>time.</span></h2>
+            </div>
+
+            <div class="timeline">
+
+                <article class="timeline-item">
+                    <span class="timeline-dot"></span>
+
+                    <p class="timeline-date">THE BEGINNING</p>
+
+                    <div>
+                        <h3>Starting with the fundamentals</h3>
+                        <p>
+                            Learning programming basics and getting
+                            familiar with how websites are built.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <span class="timeline-dot"></span>
+
+                    <p class="timeline-date">RIGHT NOW</p>
+
+                    <div>
+                        <h3>Trying, building, improving</h3>
+                        <p>
+                            Creating projects, exploring tools,
+                            and learning by doing rather than
+                            waiting until I know everything.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <span class="timeline-dot"></span>
+
+                    <p class="timeline-date">WHAT'S NEXT</p>
+
+                    <div>
+                        <h3>More ideas. More collaboration.</h3>
+                        <p>
+                            Taking on new challenges, meeting
+                            creative people, and turning curiosity
+                            into useful skills.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- HOBBIES AND INTERESTS -->
+        <section class="content-section section-wrap" id="interests">
+
+            <div class="section-heading">
+                <p class="eyebrow">05 / BEYOND THE CODE</p>
+                <h2>Other things that make me <span>me.</span></h2>
+
+                <p class="section-subtitle">
+                    Because a good idea can come from anywhere,
+                    not just a screen.
+                </p>
+            </div>
+
+            <div class="interest-grid">
+
+                <article class="interest-card">
+                    <span class="interest-number">01</span>
+                    <span class="interest-symbol">◎</span>
+                    <h3>Photography</h3>
+                    <p>
+                        Finding interesting frames, little moments,
+                        and stories in everyday things.
+                    </p>
+                </article>
+
+                <article class="interest-card">
+                    <span class="interest-number">02</span>
+                    <span class="interest-symbol">▶</span>
+                    <h3>Reels &amp; storytelling</h3>
+                    <p>
+                        Playing with edits, pacing, and details
+                        that make a video feel right.
+                    </p>
+                </article>
+
+                <article class="interest-card">
+                    <span class="interest-number">03</span>
+                    <span class="interest-symbol">▧</span>
+                    <h3>Design &amp; Canva</h3>
+                    <p>
+                        Exploring layouts, colours, and ways
+                        to make information engaging.
+                    </p>
+                </article>
+
+                <article class="interest-card">
+                    <span class="interest-number">04</span>
+                    <span class="interest-symbol">✳</span>
+                    <h3>People &amp; events</h3>
+                    <p>
+                        Meeting new people, sharing ideas,
+                        and bringing things together as a team.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+        <section class="contact-section section-wrap" id="contact">
+
+            <div class="contact-card">
+
+                <div>
+                    <p class="eyebrow">06 / YOUR TURN</p>
+
+                    <h2>
+                        Have an idea?<br>
+                        <span>Let's make something.</span>
+                    </h2>
+
+                    <p>
+                        I'm open to learning, collaborating,
+                        and hearing about interesting projects.
+                    </p>
+                </div>
+
+                <div class="contact-links" id="links">
+                    <a
+                        href="https://github.com/Nithyavinay"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GitHub ↗
+                    </a>
+
+                    <a
+                        href="https://www.linkedin.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        LinkedIn ↗
+                    </a>
+
+                    <a href="mailto:hello@example.com">
+                        Email me ↗
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p id="footer"></p>
-        </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer section-wrap">
+
+        <a href="#home" class="brand footer-brand">
+            <span class="brand-mark">N</span>
+            nithya<span class="gold">.</span>
+        </a>
+
+        <p id="footer">
+            Made with curiosity by Nithya Vinay.
+        </p>
+
+        <a href="#home" class="back-top">
+            Back to top ↑
+        </a>
+
     </footer>
 
-    <!-- Script that populates data from profile.json -->
-    <script src="script.js"></script>
 </body>
 </html>
